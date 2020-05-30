@@ -51,3 +51,8 @@ For the control of the master mode, fan mode, the temperature and to turn it on 
 #### Example
 
 To turn on the AC on 22 degree on auto mode and fan quiet here is the code to send: `22041` (22 for 22 degree, 0 for master on auto mode, 4 for fan on quiet mode and 1 to turn on the AC)
+
+## Analyze
+
+The [docs](./docs) folder contains some documents I produced for the analyze of the IR sequence.
+The most interesting part is in the [ir_analyze.numbers](./docs/ir_analyze.numbers) file which show the difference of the sequence for each mode/temperature.
