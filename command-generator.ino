@@ -1,5 +1,5 @@
 //
-//  main.c
+//  command-generator.c
 //  Fuji AC IR Code
 //
 //  Created by William Mura on 2020-05-28.
@@ -136,7 +136,6 @@ void setMode(int *sequence, int masterMode, int fanMode, int flagOn) {
     int mixedMode = masterMode + fanMode + flagOn;
     int valueDecimal = 0 - mixedMode;
     valueDecimal = valueDecimal < 0 ? 16 + valueDecimal : valueDecimal;
-    printf("value: %d", valueDecimal);
     int *valueBinary = decimalToBinary(valueDecimal);
 
     for (i=BIT_MODE_2_START; i<=BIT_MODE_2_END; i++) {
