@@ -4,7 +4,11 @@ Allow to control a Fujitsu ASU12CQ with infrared.
 
 ## Architecture
 
-[RaspberryPi] ---> RF433 ---> [Arduino] ---> IR ---> [AC]
+Here is the architecture for my setup.
+
+I chose to use an Arduino Nano as it can fit directly into the AC, so nothing is visible from the outside. It is alimented directly from the power of the AC with a transformer and is reachable through RF433.
+
+[RaspberryPi] ---> RF433 ---> [Arduino Nano] ---> IR ---> [AC]
 
 
 ## Files
