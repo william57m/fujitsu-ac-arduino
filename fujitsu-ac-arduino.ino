@@ -2,12 +2,20 @@
 #include "RCSwitch.h"
 #include "commands.h"
 
+// RF codes
+#define CODE_TURN_OFF        15001;
+#define CODE_TOGGLE_AIRCLEAN 15002;
+#define CODE_TOGGLE_SWING    15003;
+#define CODE_SET_WING        15004;
+
+// Init IR
 IRsend irsend;
-decode_results results;
-RCSwitch mySwitch = RCSwitch();
+
+// Init RF
+RCSwitch rfSwitch = RCSwitch();
 
 void setup() {
-  mySwitch.enableReceive(0);
+  rfSwitch.enableReceive(0);
 }
 
 void sendCode(unsigned int *code, size_t sizeCode) {
@@ -15,20 +23,16 @@ void sendCode(unsigned int *code, size_t sizeCode) {
 }
 
 void loop() {
-  if (mySwitch.available()) {
-    int value = mySwitch.getReceivedValue();
+  if (rfSwitch.available()) {
+    int value = rfSwitch.getReceivedValue();
 
-    if (value == 15001) {
-      // Turn off
+    if (value == CODE_TURN_OFF) {
       sendCode(COMMAND_TURN_OFF, 99);
-    } else if (value == 15002) {
-      // Toggle airclean
+    } else if (value == CODE_TOGGLE_AIRCLEAN) {
       sendCode(COMMAND_TOGGLE_AIRCLEAN, 99);
-    } else if (value == 15003) {
-      // Toggle swing
+    } else if (value == CODE_TOGGLE_SWING) {
       sendCode(COMMAND_TOGGLE_SWING, 99);
-    } else if (value == 15004) {
-      // Set wing
+    } else if (value == CODE_SET_WING) {
       sendCode(COMMAND_SET_WING, 99);
     } else if (value >= 18000) {
       String command = String(value);
@@ -41,6 +45,6 @@ void loop() {
     }
 
     delay(500);
-    mySwitch.resetAvailable();
+    rfSwitch.resetAvailable();
   }
 }
