@@ -3,10 +3,10 @@
 #include "commands.h"
 
 // RF codes
-#define CODE_TURN_OFF        15001;
-#define CODE_TOGGLE_AIRCLEAN 15002;
-#define CODE_TOGGLE_SWING    15003;
-#define CODE_SET_WING        15004;
+const int CODE_TURN_OFF        = 15001;
+const int CODE_TOGGLE_AIRCLEAN = 15002;
+const int CODE_TOGGLE_SWING    = 15003;
+const int CODE_SET_WING        = 15004;
 
 // Init IR
 IRsend irsend;
